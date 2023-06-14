@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div>
+      <div className="pt-5">
         <div className="flex flex-row items-center justify-between">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -61,7 +61,7 @@ const Navbar = () => {
            viewport={{ once: true }}
            variants={container}
           className="cursor-pointer">
-            <button className="lg:px-7 py-2 px-5 bg-white text-black">
+            <button className="lg:px-7 py-1.5 px-5 bg-white text-black">
               Sign In
             </button>
           </motion.div>
