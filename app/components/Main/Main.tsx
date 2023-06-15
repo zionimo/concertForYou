@@ -56,9 +56,9 @@ const Main = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="w-full lg:h-[700px] md:h-[500px] h-[300px] object-cover object-top opacity-100"
-            src="/aespa-home.webp"
-            alt="Aespa"
+            className=" w-full lg:h-[700px] md:h-[500px] h-[300px] object-cover object-top brightness-75"
+            src="artists/idle.jpg"
+            alt="Idle"
           />
 
           <motion.div
@@ -72,7 +72,7 @@ const Main = () => {
               variants={image}
               className="absolute top-8 left-8 lg:text-7xl text-5xl"
             >
-              Aespa
+              (G)I-DLE
             </motion.span>
 
             <motion.span
@@ -89,11 +89,9 @@ const Main = () => {
               >
                 Seoul, December 12
               </motion.span>
-              <motion.span
-                variants={image}
-                className=" lg:text-xl text-sm "
-              >
-                Aespa is a South Korean girl group formed by SM Entertainment.
+              <motion.span variants={image} className=" lg:text-xl text-sm ">
+                (G)I-DLE is a South Korean girl group formed by SM
+                Entertainment.
               </motion.span>
             </div>
           </motion.div>

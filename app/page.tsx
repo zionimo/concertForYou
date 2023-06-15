@@ -1,6 +1,7 @@
 import Container from "./components/Container";
 import Main from "./components/Main/Main";
 import Navbar from "./components/Navbar/Navbar";
+import Section from "./components/Section/Section";
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
 
           <Main />
         </div>
+        <Section />
       </Container>
     </div>
   );
