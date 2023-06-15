@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Container from "./components/Container";
-import Hero from "./components/Hero/Hero";
+import Main from "./components/Main/Main";
 import Navbar from "./components/Navbar/Navbar";
 
 export default function Home() {
@@ -30,13 +29,13 @@ export default function Home() {
                 y2="1144"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" stop-opacity="0.72" />
-                <stop offset="1" stop-color="white" stop-opacity="0" />
+                <stop stopColor="white" stopOpacity="0.72" />
+                <stop offset="1" stopColor="white" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
 
-          <Hero />
+          <Main />
         </div>
       </Container>
     </div>

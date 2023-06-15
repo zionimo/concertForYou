@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Main = () => {
   const container = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.3 } }, // staggerChildren: 자식컴포넌트 애니메이션 간의 시차를 줄수 있음
@@ -13,6 +13,10 @@ const Hero = () => {
     show: { opacity: 1, y: 0, transition: { type: "smooth" } },
   };
 
+  const image = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "smooth" } },
+  };
   return (
     <div className="pt-28">
       <motion.div
@@ -43,8 +47,42 @@ const Hero = () => {
           agencies in korea and other outstanding talents
         </motion.p>
       </motion.div>
+
+      <div className="mt-28 text-white">
+        <div className="p-2 relative">
+          <motion.img
+            className="w-full lg:h-[700px] h-[500px] object-cover object-top opacity-100"
+            src="/aespa-home.webp"
+            alt="Aespa"
+          />
+
+          <motion.div>
+            <motion.span className="absolute top-8 left-8 lg:text-7xl text-4xl">
+              Aespa
+            </motion.span>
+            <motion.span
+              variants={image}
+              className="absolute bottom-8 left-8 lg:text-xl md:text-base text-sm max-sm:hidden"
+            >
+              Aespa is a South Korean girl group formed by SM Entertainment.{" "}
+            </motion.span>
+            <motion.span
+              variants={image}
+              className="absolute top-8 right-8 md:text-xl text-sm"
+            >
+              Go and Buy the tickets
+            </motion.span>
+            <motion.span
+              variants={image}
+              className="absolute right-8 bottom-8 md:text-3xl text-sm"
+            >
+              Seoul, December 12
+            </motion.span>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Hero;
+export default Main;
