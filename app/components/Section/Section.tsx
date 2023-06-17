@@ -3,19 +3,40 @@
 import { motion } from "framer-motion";
 
 const Section = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.3 } }, // staggerChildren: 자식컴포넌트 애니메이션 간의 시차를 줄수 있음
+  };
+
+  const context = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "smooth" } },
+  };
+
+  const image = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "smooth" } },
+  };
+
   return (
     <div className="mt-40">
       <motion.div
         initial="hidden"
         whileInView="show"
+        variants={container}
         viewport={{ once: true }}
         className="md:grid grid-cols-2 gap-x-7 space-y-10"
       >
         {/* 방탄소년단 */}
-        <motion.img whileInView="show" src="artists/bts.jpg" alt="BTS" />
+        <motion.img
+          whileInView="show"
+          variants={image}
+          src="artists/bts.jpg"
+          alt="BTS"
+        />
         <div className="max-md:hidden text-4xl md:text-7xl text-neutral-800 flex items-center font-extrabold"></div>
 
-        <motion.div>
+        <motion.div variants={context}>
           <h1 className="text-4xl mt-4 mb-4 max-sm:text-3xl">BTS</h1>
           <p className="text-2xl text-neutral-500 max-sm:text-xl">
             BIGHIT MUSIC Entertainment
@@ -31,13 +52,14 @@ const Section = () => {
 
         {/* 블랙핑크 */}
         <motion.img
+          variants={image}
           className="md:mt-[40px]"
           src="artists/blackpink.jpg"
           alt="BlackPink"
         />
         <div className="text-4xl md:text-7xl text-neutral-800 flex items-center mb-20 font-extrabold"></div>
-        <motion.div>
-          <h1 className="text-4xl mt-4 mb-4 max-sm:text-3xl">BLACK PINK</h1>
+        <motion.div variants={context}>
+          <h1 className="text-4xl mb-4 max-sm:text-3xl">BLACK PINK</h1>
           <p className="text-2xl text-neutral-500 max-sm:text-xl">
             YG Entertainment
           </p>
@@ -52,12 +74,13 @@ const Section = () => {
 
         {/* 트와이스 */}
         <motion.img
+          variants={image}
           className="md:mt-[-100px] opacity-80"
           src="artists/twice.jpg"
           alt=""
         />
         <div className="max-md:hidden text-4xl md:text-7xl text-neutral-800 flex items-center justify-center font-extrabold"></div>
-        <motion.div>
+        <motion.div variants={context}>
           <h1 className=" text-4xl mt-4 mb-4 max-sm:text-3xl">TWICE</h1>
           <p className="text-2xl text-neutral-500 max-sm:text-xl">
             JYP Entertainment
