@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Section = () => {
   const container = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.3 } }, // staggerChildren: 자식컴포넌트 애니메이션 간의 시차를 줄수 있음
+    show: { opacity: 1, transition: { staggerChildren: 0.3 } },
   };
 
   const context = {
@@ -14,8 +14,13 @@ const Section = () => {
   };
 
   const image = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "smooth" } },
+    hidden: { opacity: 0, y: 30, scale: 1.2 },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { type: "keyframe", duration: 0.4 },
+    },
   };
 
   return (
