@@ -49,6 +49,8 @@ const Service = () => {
         console.error("에러", error);
       }
     };
+
+    fetchScheduleData();
   }, []); // 빈배열 넣기. 처음 렌더링될 때 한 번만 실행함
 
   const handleItemClick = (index: number) => {
@@ -56,19 +58,21 @@ const Service = () => {
   };
   const renderImage = () => {
     const images = [
-      "aritst/aespa.jpg",
-      "aritst/idle.jpg",
-      "aritst/ive.jpg",
-      "aritst/lesserafim.jpg",
-      "aritst/newjeans.jpg",
-      "aritst/stayc.jpg",
-      "aritst/straykids.jpg",
-      "aritst/sventeen.jpg",
+      "artists/aespa.jpg",
+      "artists/idle.jpg",
+      "artists/ive.jpg",
+      "artists/lesserafim.jpeg",
+      "artists/newjeans.jpg",
+      "artists/stayc.jpg",
+      "artists/straykids.jpg",
+      "artists/sventeen.jpg",
     ];
 
     return images.map((image, index) => (
       <img
-        className={`${selected ? "" : "hidden"} `}
+        className={`w-full h-auto max-h-[600px] object-cover object-top max-md:mb-20  brightness-50 ${
+          selected === index ? "" : "hidden"
+        } `}
         src={image}
         key={index}
         alt="Image"
@@ -79,17 +83,26 @@ const Service = () => {
   const renderDates = () => {
     if (!schedule[selected]) return null;
     const dates = schedule[selected].dates;
+
     return (
-      <div>
+      <div className="md:absolute bottom-2 flex items-start justify-around w-full text-neutral-100 max-md:grid grid-cols-2 max-md:gap-6">
         {dates.map((date, index) => (
-          <div key={index}>
-            <h1>{date.month}</h1>
-            <ul>
+          <div key={index} className="text-white">
+            <h1 className="lg:text-4xl md:text-3xl text-2xl mb-4">
+              {date.month}
+            </h1>
+
+            <ul className="lg:space-y-4 space-y-2">
               {date.details.map((detail, index) => (
-                <li key={index}>
-                  <h2>{detail.day}</h2>
-                  <div>
+                <li
+                  key={index}
+                  className="flex flex-row  lg:space-x-5 space-x-2 text-left"
+                >
+                  <h2 className="lg:text-3xl text-xl">{detail.day}</h2>
+
+                  <div className="max-md:text-sm">
                     <h3>{detail.location}</h3>
+
                     {detail.description}
                   </div>
                 </li>
@@ -102,8 +115,9 @@ const Service = () => {
   };
 
   return (
-    <div className="mt-32 text-center">
-      <div>
+    <div className="mt-32 text-center tracking-wider">
+      <hr />
+      <div className="mt-24">
         <h1 className="lg:text-7xl text-4xl mb-6">Schedule</h1>
         <p className="lg:text-2xl text-base text-neutral-400">
           Discover the schedule of your favourite idols and support them at an
@@ -111,10 +125,11 @@ const Service = () => {
         </p>
       </div>
 
-      <div className="mt-24 ">
-        <ul className="flex flex-wrap justify-evenly ">
+      <div className="mt-20 ">
+        <ul className="flex flex-row flex-wrap justify-between">
           {Array.from({ length: 8 }, (_, index) => (
             <li
+              key={index}
               onClick={() => {
                 handleItemClick(index);
               }}
@@ -122,12 +137,24 @@ const Service = () => {
                 selected === index
                   ? " text-yellow-200 lg:text-3xl text-xl"
                   : " text-neutral-500 lg:text-2xl text-base"
-              } tracking-wider `}
+              } w-auto cursor-pointer`}
             >
               {artists[index]}
             </li>
           ))}
         </ul>
+      </div>
+      <div>
+        <div className="relative md:bg-gradient-to-tl from-black to-white z-10">
+          {renderImage()}
+          {renderDates()}
+        </div>
+      </div>
+
+      <div className="mt-32 ">
+        <button className="border-2 px-5 py-2 hover:bg-white hover:text-black ease-in duration-200">
+          See More
+        </button>
       </div>
     </div>
   );

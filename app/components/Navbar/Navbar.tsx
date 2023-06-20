@@ -21,7 +21,6 @@ const Navbar = () => {
           >
             <Image
               priority={true} // 랜딩시우선적으로 로드됨
-              style={{ width: "196px", height: "auto" }}
               src="/logo1.png"
               width={196}
               height={20}
