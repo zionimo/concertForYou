@@ -1,3 +1,4 @@
+import Card from "./components/Card/Card";
 import Container from "./components/Container";
 import Main from "./components/Main/Main";
 import Navbar from "./components/Navbar/Navbar";
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Container>
-        <div className="relative">
+        <div className="relative ">
           <Navbar />
           <svg
             width="1502"
@@ -41,6 +42,7 @@ export default function Home() {
         </div>
         <Section />
         <Service />
+        <Card/>
       </Container>
     </div>
   );

@@ -41,10 +41,10 @@ const Main = () => {
 
         <motion.p
           variants={context}
-          className="text-center text-xl max-lg:text-lg max-md:text-base w-10/12 mx-auto tracking-wider text-neutral-400"
+          className="text-center text-xl max-lg:text-lg max-md:text-base w-10/12 mx-auto text-neutral-400"
         >
           The biggest, extraordinary and spread out K-Pop music festival all
-          around the world , in cooperation with all the famous k-pop indusry
+          around the world, in cooperation with all the famous k-pop indusry
           agencies in korea and other outstanding talents
         </motion.p>
       </motion.div>

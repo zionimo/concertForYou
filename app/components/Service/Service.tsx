@@ -115,7 +115,7 @@ const Service = () => {
   };
 
   return (
-    <div className="mt-32 text-center tracking-wider">
+    <div className="mt-32 text-center">
       <hr />
       <div className="mt-24">
         <h1 className="lg:text-7xl text-4xl mb-6">Schedule</h1>
