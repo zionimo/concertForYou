@@ -1,9 +1,9 @@
-import Card from "./components/Card/Card";
 import Container from "./components/Container";
 import Main from "./components/Main/Main";
 import Navbar from "./components/Navbar/Navbar";
 import Section from "./components/Section/Section";
 import Service from "./components/Service/Service";
+import Card from "./components/Card/Card";
 
 export default function Home() {
   return (

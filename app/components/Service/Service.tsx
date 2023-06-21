@@ -30,7 +30,7 @@ const artists = [
   "SEVENTEEN",
 ];
 
-const Service = () => {
+const Service: React.FC = () => {
   const [selected, setSelected] = useState<number>(0);
   const [schedule, setSchedule] = useState<ScheduleData[]>([]);
 
@@ -114,18 +114,34 @@ const Service = () => {
     );
   };
 
+  // motion
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.3 } }, // staggerChildren: 자식컴포넌트 애니메이션 간의 시차를 줄수 있음
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { type: "keyframe", duration: 0.4 } },
+  };
+
   return (
-    <div className="mt-32 text-center">
-      <hr />
-      <div className="mt-24">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="mt-32 text-center"
+    >
+      <motion.div variants={item} className="mt-24">
         <h1 className="lg:text-7xl text-4xl mb-6">Schedule</h1>
-        <p className="lg:text-2xl text-base text-neutral-400">
+        <p className="lg:text-2xl text-base text-neutral-400 text-center w-[80%] md:w-[60%] mx-auto">
           Discover the schedule of your favourite idols and support them at an
           incredibly grand concert
         </p>
-      </div>
+      </motion.div>
 
-      <div className="mt-20 ">
+      <motion.div variants={item} className="mt-20 mb-6">
         <ul className="flex flex-row flex-wrap justify-between">
           {Array.from({ length: 8 }, (_, index) => (
             <li
@@ -143,20 +159,20 @@ const Service = () => {
             </li>
           ))}
         </ul>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div variants={item}>
         <div className="relative md:bg-gradient-to-tl from-black to-white z-10">
           {renderImage()}
           {renderDates()}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mt-32 ">
+      <motion.div variants={item} className="mt-16">
         <button className="border-2 px-5 py-2 hover:bg-white hover:text-black ease-in duration-200">
           See More
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

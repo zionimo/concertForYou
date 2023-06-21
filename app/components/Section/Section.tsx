@@ -100,6 +100,7 @@ const Section = () => {
           </button>
         </motion.div>
       </motion.div>
+      <hr className="mt-24"/>
     </div>
   );
 };
