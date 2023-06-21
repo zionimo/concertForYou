@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Section from "./components/Section/Section";
 import Service from "./components/Service/Service";
 import Card from "./components/Card/Card";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -44,6 +45,8 @@ export default function Home() {
         <Service />
         <Card/>
       </Container>
+      
+        <Footer/>
     </div>
   );
 }

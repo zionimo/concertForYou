@@ -1,3 +1,4 @@
+// 클라이언트 컴포넌트로 취급
 "use client";
 
 import Image from "next/image";
