@@ -1,9 +1,11 @@
 # CONCERT FOR YOU
 
+## 📅제작기간
+2023-06-13 ~
 
 ## ✏️소개
 콘서트 예약 서비스 사이트입니다.
-`Next.js`와 `TypeScript`, `tailwindcss` 사용법을 익히기 위해 제작했습니다.
+`Next.js`와 `TypeScript`, `tailwindcss` 사용법을 익히기 위해 제작한 토이프로젝트입니다.
 
 ## 🔗URL
 https://concert-for-you.vercel.app/
