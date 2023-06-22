@@ -56,6 +56,8 @@ const Service: React.FC = () => {
   const handleItemClick = (index: number) => {
     setSelected(index);
   };
+
+  // 아티스트 이미지
   const renderImage = () => {
     const images = [
       "artists/aespa.jpg",
@@ -70,7 +72,7 @@ const Service: React.FC = () => {
 
     return images.map((image, index) => (
       <img
-        className={`w-full h-auto max-h-[600px] object-cover object-top max-md:mb-20  brightness-50 ${
+        className={`w-full h-auto max-h-[600px] object-cover object-top max-md:mb-20 brightness-50 ${
           selected === index ? "" : "hidden"
         } `}
         src={image}
@@ -80,7 +82,8 @@ const Service: React.FC = () => {
     ));
   };
 
-  const renderDates = () => {
+  // 콘서트 정보
+  function renderDates() {
     if (!schedule[selected]) return null;
     const dates = schedule[selected].dates;
 
@@ -112,7 +115,7 @@ const Service: React.FC = () => {
         ))}
       </div>
     );
-  };
+  }
 
   // motion
   const container = {
@@ -133,6 +136,7 @@ const Service: React.FC = () => {
       viewport={{ once: true }}
       className="mt-32 text-center"
     >
+      {/* 스케줄 소개글 */}
       <motion.div variants={item} className="mt-24">
         <h1 className="lg:text-7xl text-4xl mb-6">Schedule</h1>
         <p className="lg:text-2xl text-base text-neutral-400 text-center w-[80%] md:w-[60%] mx-auto">
@@ -141,8 +145,9 @@ const Service: React.FC = () => {
         </p>
       </motion.div>
 
+      {/* 아티스트 리스트 */}
       <motion.div variants={item} className="mt-20 mb-6">
-        <ul className="flex flex-row flex-wrap justify-between">
+        <ul className="grid grid-cols-4 lg:grid-cols-8">
           {Array.from({ length: 8 }, (_, index) => (
             <li
               key={index}
@@ -151,8 +156,8 @@ const Service: React.FC = () => {
               }}
               className={`${
                 selected === index
-                  ? " text-yellow-200 lg:text-3xl text-xl"
-                  : " text-neutral-500 lg:text-2xl text-base"
+                  ? " text-yellow-200 lg:text-3xl text-2xl"
+                  : " text-neutral-500 lg:text-2xl text-xl"
               } w-auto cursor-pointer`}
             >
               {artists[index]}
@@ -160,6 +165,8 @@ const Service: React.FC = () => {
           ))}
         </ul>
       </motion.div>
+
+      {/* 아티스트 이미지 & 콘서트 정보 */}
       <motion.div variants={item}>
         <div className="relative md:bg-gradient-to-tl from-black to-white z-10">
           {renderImage()}
